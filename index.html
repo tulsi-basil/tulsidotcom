@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Info Windows -->
+        <div class="window" id="status-window" draggable="true">
+    <div class="window-header">
+        <div class="window-title"> <strong>status</strong></div>
+        <button class="minimize-btn">—</button>
+    </div>
+    <div class="window-content">
+        <p>Tulsi is currently working at London-based studio Liquid City. She will be open to work starting late summer 2025.</p><br>
+        <p><strong>Mood:</strong> welcoming back the sun ☼ </p>
+    </div>
+</div>
+
+<div class="window" id="reviews-window" draggable="true">
+    <div class="window-header">
+        <div class="window-title"> <strong>reviews</strong></div>
+        <button class="minimize-btn">—</button>
+    </div>
+    <div class="window-content">
+        <div class="review">
+            <img src="andrew-icon.png" alt="Andrew Roth">
+            <div class="review-content">
+                <h3>Andrew Roth, <em>Founder @ dcdx</em></h3>
+                <p class="review-point">Tulsi is one of those people that just get it. Her ability to find deeper meaning amidst a sea of noise is unparalleled, and her seemingly intuitive understanding of human behavior is scarily on point. The work she did with us at dcdx over a year ago as an intern still stands the test of time as some of our most thought-provoking and loved writing from our audience.</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="asha-icon.png" alt="Asha Toulmin">
+            <div class="review-content">
+                <h3>Asha Toulmin, <em>Director of UX Research @ CNN</em></h3>
+                <p class="review-point">+ Creative: Tulsi comes up with new ideas, thoughts and ways of approaching things</p>
+                <p class="review-point">+ Fearless: Tulsi is never afraid to speak up, contribute and address something</p>
+                <p class="review-point">+ Proactive: Tulsi truly shows up to what she is invited to, and is always looking to do more and to explore more</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="agnes-icon.png" alt="Agnieska Kroczek">
+            <div class="review-content">
+                <h3>Agnieska Kroczek, <em>Product Designer @ CNN</em></h3>
+                <p class="review-point">Creative, well-spoken, collaborative, and insightful. I worked with Tulsi on a research project at CNN Underscored. Her research compilation was so effective that it would remain a pattern to follow. Tulsi’s super strength is her openness to tackle projects big and small. She brings energy, freshness, intellect, and a creative spark. Working with Tulsi has been a pleasure, and I can't wait to see what she'll tackle next!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="window" id="intro-window" draggable="true">
+            <div class="window-header">
+                <div class="window-title"> <strong>tulsi is a</strong> </div>
+            </div>
+            <div class="window-content">
+                <img src="tulsiisa.gif" width="300px" height="auto">
+            </div>
+        </div>
+
+        <div class="folder-windows"></div>
+        <!-- Folders Container -->
+        <div class="folders-container">
+            <div class="folder" data-category="xr-ai">
+                <img src="xr-icon.png" alt="XR + AI">
+                <span>XR experiences</span>
+            </div>
+            <div class="folder" data-category="web">
+                <img src="web-icon.png" alt="UX Design">
+                <span>ux design</span>
+            </div>
+            <div class="folder" data-category="research">
+                <img src="research-icon.png" alt="User Research">
+                <span>user research</span>
+            </div>
+            <div class="folder" data-category="personal">
+                <img src="personal-icon.png" alt="Personal Projects">
+                <span>creative projects</span>
+            </div>
+            <div class="folder" data-category="more">
+                <img src="more-icon.png" alt="Much More">
+                <span>much more!</span>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="bottom-bar">
+            <div class="contact-links">
+                You can reach out to her via
+                <a href="mailto:tulsikpatel2000@gmail.com">email</a>,
+                <a href="https://www.linkedin.com/in/tulsi-patel-4aab98173/">LinkedIn</a>, or
+                <a href="https://substack.com/@tulsibasil?">Substack</a>
+            </div>
+            <div class="controls">
+                <button id="minimal">minimal site</button>
+                <button id="show-works">show selected works</button>
+                <button id="change-bg">change background</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
