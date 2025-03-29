@@ -66,13 +66,13 @@ const backgroundStates = [
     },
     { 
         name: 'night',
-        images: ['night2.png', 'night3.png', 'night.jpeg'],
+        images: ['night2.png', 'night.jpeg'],
         buttonText: 'sunset mode',
         currentImageIndex: 0
     },
     { 
         name: 'sunset',
-        images: ['sunset.jpg', 'sunset2.png'],
+        images: ['sunset.jpg'],
         buttonText: 'dawn mode',
         currentImageIndex: 0
     },
@@ -117,7 +117,7 @@ const folderContents = {
         { icon: 'yuber-icon.png', gif: 'yuber.gif', name: 'Yuber' }
     ],
     'research': [
-        { icon: 'ad-icon.png', gif: 'gzd.gif', name: 'Ads & stuff' },
+        { icon: 'ad-icon.png', gif: 'gzd.gif', name: 'dcdx' },
         { icon: 'cnn-icon.png', gif: 'cnn.gif', name: 'CNN' }
     ],
     'personal': [
@@ -127,12 +127,13 @@ const folderContents = {
         { icon: 'writing-icon.png', gif: 'writing.gif', name: 'Writing' }
     ],
     'more': [
-        { icon: 'fancy-icon.png', gif: 'fancybear.gif', name: 'Fancy Bear' },
+        { icon: 'fancy-icon.png', gif: 'fancybear.gif', name: 'FancyBear' },
         { icon: 'eye-con.png', gif: 'thesis.gif', name: 'Thesis' }
     ]
 };
 
 function createFolderWindow(category) {
+    // First create the folder window element
     const folderWindow = document.createElement('div');
     folderWindow.className = 'window folder-window';
     folderWindow.id = `${category}-window`;
@@ -142,28 +143,38 @@ function createFolderWindow(category) {
         'xr-ai': '#C3F400',
         'web': '#7C82F9',
         'research': '#3D8421',
-        // 'personal': '#ffffff',
+        'personal': '#ffffff',
         'more': '#000000'
     };
     
     folderWindow.style.borderColor = colors[category];
 
+    // Add the note for research category
+    const noteHtml = category === 'research' ? 
+        `<div class="window-note">*These are dedicated research projects. Research methodologies are integral to all my work.</div>` : '';
+    
+    // Then set the HTML content
     folderWindow.innerHTML = `
     <div class="window-header" style="border-bottom-color: ${colors[category]}; background-color: ${colors[category]}">
         <button class="minimize-btn">—</button>
-        <div class="window-title">${category}</div>
+        <div class="window-title">
+            ${category === 'web' ? 'ux' : 
+              category === 'personal' ? 'creative' : 
+              category}
+        </div>
         <button class="close-btn">×</button>
     </div>
-        <div class="window-content">
-            <div class="project-grid">
-                ${folderContents[category].map(project => `
-                    <div class="project-item" data-gif="${project.gif}">
-                        <img src="${project.icon}" alt="${project.name}">
-                        <span>${project.name}</span>
-                    </div>
-                `).join('')}
-            </div>
+    <div class="window-content">
+        <div class="project-grid">
+            ${folderContents[category].map(project => `
+                <div class="project-item" data-gif="${project.gif}">
+                    <img src="${project.icon}" alt="${project.name}">
+                    <span>${project.name}</span>
+                </div>
+            `).join('')}
         </div>
+        ${noteHtml}
+    </div>
     `;
 
     document.querySelector('.folder-windows').appendChild(folderWindow);
@@ -185,11 +196,11 @@ function createFolderWindow(category) {
         }
     });
 
-    // Add after minimize button event listener
+    // Add close button event listener
     folderWindow.querySelector('.close-btn').addEventListener('click', (e) => {
-    e.stopPropagation();
-    folderWindow.style.display = 'none';
-});
+        e.stopPropagation();
+        folderWindow.style.display = 'none';
+    });
 
     return folderWindow;
 }
@@ -245,11 +256,11 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
             folder.style.top = '120px';
             folder.style.right = '0';
             break;
-        case 'research':
+        case 'personal':
             folder.style.top = '0';
             folder.style.right = '120px';
             break;
-        case 'personal':
+        case 'research':
             folder.style.top = '120px';
             folder.style.right = '120px';
             break;
@@ -316,9 +327,13 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
         const projectItem = e.target.closest('.project-item');
         if (projectItem) {
             const projectName = projectItem.querySelector('span').textContent;
+            if (projectName === 'Homescreen') {
+            window.open('https://www.instagram.com/h0m3scr33n.proj/', '_blank'); // Replace with your Instagram URL
+        } else {
             window.location.href = `./projects/${projectName.toLowerCase()}.html`;
         }
-    });
+      }
+ });
 
     // Add show works event listener
     document.getElementById('show-works').addEventListener('click', toggleSelectedProjects);

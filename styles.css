@@ -4,7 +4,7 @@
     --accent-yellow: #c2f970;
     --accent-purple: #8e7ff3;
     --accent-blue: #70d1f9;
-    --accent-green: #3d8421;
+    --accent-green: #73D0FA;
 }
 
 * {
@@ -129,12 +129,12 @@ body {
 }
 
 #reviews-window {
-    top: 425px;
+    top: 407px;
     left: 20px;
     width: 300px; 
     min-width: 20vw;  /* Minimum width instead of fixed width */
     max-width: 100vw;
-    height: 310px; 
+    height: 335px; 
     resize: both;     /* Allow both horizontal and vertical resizing */
     overflow: auto;
     border: 1px solid black;
@@ -151,6 +151,21 @@ body {
 #personal-window {
     border: 1px solid black;
 }
+
+#personal-window .window-header {
+    border-bottom: 1px solid black;
+    background-color: white;
+    color: white;
+}
+
+#personal-window .minimize-btn{
+    color: black;
+}
+
+#personal-window .window-title{
+    color: black;
+}
+
 
 #more-window .close-btn,
 #more-window .minimize-btn,
@@ -174,7 +189,16 @@ body {
     color: black
 }
 
-
+.window-note {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 10px;
+    font-style: italic;
+    color: #666;
+    max-width: 70%;
+    text-align: right;
+}
 
 
 .folder {
@@ -209,11 +233,29 @@ body {
 .folder[data-category="xr-ai"] { top: 0; right: 0; }
 .folder[data-category="web"] { top: 120px; right: 0; }
 .folder[data-category="mobile"] { top: 240px; right: 0; }
-.folder[data-category="research"] { top: 0; right: 120px; }
+.folder[data-category="research"] { top: 0; right: 150px; }
 .folder[data-category="personal"] { top: 120px; right: 120px; }
 .folder[data-category="more"] { top: 240px; right: 120px; }
 
 /* Add to styles.css */
+
+.folder:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.4));
+}
+
+.folder img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 5px;
+    transition: transform 0.2s ease;
+}
+
+.folder span {
+    text-align: center;
+    font-size: 0.9em;
+    transition: color 0.2s ease;
+}
 
 
 
