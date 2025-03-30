@@ -107,28 +107,28 @@ function changeBackground() {
 // Add folder content configuration
 const folderContents = {
     'xr-ai': [
-        { icon: 'Wisp-App-Icon.png', gif: 'wisp.gif', name: 'Wisp' },
-        { icon: 'parabrain-icon.png', gif: 'parabrain.gif', name: 'Parabrain' },
-        { icon: 'interaction-icon.png', gif: 'hmd.gif', name: 'Interaction' }
+        { icon: 'Wisp-App-Icon.png', gif: 'wisp.gif', name: 'Wisp', page: 'Wisp' },
+        { icon: 'parabrain-icon.png', gif: 'parabrain.gif', name: 'Parabrain AI', page: 'Parabrain' },
+        { icon: 'interaction-icon.png', gif: 'hmd.gif', name: 'Interaction Specification', page: 'Interaction' }
     ],
     'web': [
-        { icon: 'juggernaut-icon.png', gif: 'juggernaut.gif', name: 'Juggernaut' },
-        { icon: 'aux-icon.png', gif: 'aux.gif', name: 'AUX' },
-        { icon: 'yuber-icon.png', gif: 'yuber.gif', name: 'Yuber' }
+        { icon: 'juggernaut-icon.png', gif: 'juggernaut.gif', name: 'Juggernaut Redesign', page: 'Juggernaut' },
+        { icon: 'aux-icon.png', gif: 'aux.gif', name: 'AUX Design Consulting', page: 'Aux' },
+        { icon: 'yuber-icon.png', gif: 'yuber.gif', name: 'Yuber App', page: 'Yuber' }
     ],
     'research': [
-        { icon: 'ad-icon.png', gif: 'gzd.gif', name: 'dcdx' },
-        { icon: 'cnn-icon.png', gif: 'cnn.gif', name: 'CNN' }
+        { icon: 'ad-icon.png', gif: 'gzd.gif', name: 'Gen Z Research', page: 'dcdx' },
+        { icon: 'cnn-icon.png', gif: 'cnn.gif', name: 'CNN', page: 'CNN' }
     ],
     'personal': [
-        { icon: 'homescreen-icon.png', gif: 'homescreen.gif', name: 'Homescreen' },
-        { icon: 'websites-icon.png', gif: 'websites.gif', name: 'Website' },
-        { icon: 'visual-icon.png', gif: 'art.gif', name: 'Visual' },
-        { icon: 'writing-icon.png', gif: 'writing.gif', name: 'Writing' }
+        { icon: 'homescreen-icon.png', gif: 'homescreen.gif', name: 'Homescreen Project', page: 'Homescreen' },
+        { icon: 'websites-icon.png', gif: 'websites.gif', name: 'Websites', page: 'Website' },
+        { icon: 'visual-icon.png', gif: 'art.gif', name: 'Visual', page: 'Visual' },
+        { icon: 'writing-icon.png', gif: 'writing.gif', name: 'Writing', page: 'Writing' }
     ],
     'more': [
-        { icon: 'fancy-icon.png', gif: 'fancybear.gif', name: 'FancyBear' },
-        { icon: 'eye-con.png', gif: 'thesis.gif', name: 'Thesis' }
+        { icon: 'fancy-icon.png', gif: 'fancybear.gif', name: 'FancyBear Animation', page: 'FancyBear' },
+        { icon: 'eye-con.png', gif: 'thesis.gif', name: 'Senior Thesis', page: 'Thesis' }
     ]
 };
 
@@ -167,7 +167,7 @@ function createFolderWindow(category) {
     <div class="window-content">
         <div class="project-grid">
             ${folderContents[category].map(project => `
-                <div class="project-item" data-gif="${project.gif}">
+                <div class="project-item" data-gif="${project.gif}" data-page="${project.page || project.name.toLowerCase()}">
                     <img src="${project.icon}" alt="${project.name}">
                     <span>${project.name}</span>
                 </div>
@@ -217,6 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.backgroundImage = `url('${initialState.images[initialState.currentImageIndex]}')`;
         document.getElementById('change-bg').textContent = initialState.buttonText;
      });
+
+
+    document.getElementById('resume-icon').addEventListener('click', () => {
+    window.open('resume_tulsi_2025.pdf', '_blank');  
+    });
+
+    document.getElementById('minimal-site').addEventListener('click', () => {
+        window.location.href = 'minimal.html';
+    });
 
     // Make folders draggable
     // Set up folder click handlers
@@ -309,7 +318,7 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
     });
 
     document.addEventListener('mouseover', (e) => {
-        const projectItem = e.target.closest('.project-item');
+        const projectItem = e.target.closest('.project-item, .selected-project');
         if (projectItem) {
             preview.src = projectItem.dataset.gif;
             preview.classList.add('active');
@@ -317,7 +326,7 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
     });
 
     document.addEventListener('mouseout', (e) => {
-        const projectItem = e.target.closest('.project-item');
+        const projectItem = e.target.closest('.project-item, .selected-project');
         if (projectItem) {
             preview.classList.remove('active');
         }
@@ -327,10 +336,12 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
         const projectItem = e.target.closest('.project-item');
         if (projectItem) {
             const projectName = projectItem.querySelector('span').textContent;
-            if (projectName === 'Homescreen') {
+            const projectPage = projectItem.getAttribute('data-page');
+
+            if (projectName === 'Homescreen Project') {
             window.open('https://www.instagram.com/h0m3scr33n.proj/', '_blank'); // Replace with your Instagram URL
         } else {
-            window.location.href = `./projects/${projectName.toLowerCase()}.html`;
+            window.location.href = `./projects/${projectPage}.html`;
         }
       }
  });
@@ -393,7 +404,11 @@ function toggleSelectedProjects() {
             // Add click handler for selected projects
             projectIcon.addEventListener('click', (e) => {
                 e.stopPropagation();
-                window.location.href = `./projects/${project.name.toLowerCase()}.html`;
+                if (project.name === 'Homescreen') {
+                    window.open('https://www.instagram.com/h0m3scr33n.proj/', '_blank');
+                } else {
+                    window.location.href = `./projects/${project.page || project.name.toLowerCase()}.html`;
+                }
             });
         });
         

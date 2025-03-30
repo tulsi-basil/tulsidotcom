@@ -257,7 +257,13 @@ body {
     transition: color 0.2s ease;
 }
 
-
+#resume-icon {
+    position: absolute;
+    top: 240px;  /* Position below other folders */
+    right: 120px;
+    z-index: 1;
+    cursor: pointer;
+}
 
 .folder-window {
     position: absolute;
@@ -273,6 +279,32 @@ body {
 .folder-window.active {
     display: block;
 }
+
+.folders-container {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  width: 300px;
+  height: 360px; /* Explicitly set a height boundary */
+  z-index: 10; /* Higher than the GIF */
+}
+
+.profile-gif {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  max-width: min(30vw, 300px); /* Responsive but with maximum size */
+  max-height: min(30vh, 300px);
+  /*max-width: 350px;
+  max-height: 350px;*/
+  z-index: 5;
+  /* Ensure it doesn't go above a certain point */
+  top: auto; /* Cancel any top positioning */
+  margin-top: 380px; /* Space below the folders */
+  align-items: center;
+  text-align: center; 
+}
+
 
 .project-grid {
     display: grid;
@@ -380,19 +412,74 @@ body {
 
 
 .selected-project:nth-child(odd) {
-    right: 240px;
+    right: 260px;
 }
 
 .selected-project:nth-child(even) {
-    right: 360px;
+    right: 380px;
 }
 
-.selected-project:nth-child(1) { top: 0; }
-.selected-project:nth-child(2) { top: 0; }
-.selected-project:nth-child(3) { top: 120px; }
-.selected-project:nth-child(4) { top: 120px; }
+.selected-project:nth-child(1) { top: 10; }
+.selected-project:nth-child(2) { top: 10; }
+.selected-project:nth-child(3) { top: 125px; }
+.selected-project:nth-child(4) { top: 125px; }
 /* Add more if needed */
 
+
+.profile-gif img {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen; 
+}
+
+.intro-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease, visibility 0.1s;
+  pointer-events: none;
+}
+
+.intro-content {
+  background-color: none;
+  padding: 30px;
+  max-width: 500px;
+  font-family: monospace;
+  text-align: center;
+  color: white;
+}
+
+.intro-content h2 {
+  margin-bottom: 15px;
+}
+
+.intro-content p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Show the popup when hovering over the profile gif */
+.profile-gif:hover + .intro-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.profile-gif span {
+    margin-top: 0px;
+    text-align: center;
+    color: blue;
+    font-size: 10px;
+    margin-left: 40px;
+}
 
 /* Bottom Bar */
 .bottom-bar {

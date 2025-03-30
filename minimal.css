@@ -1,0 +1,95 @@
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.minimal-container {
+    display: flex;
+    height: 100vh;
+}
+
+.project-list {
+    width: 300px;
+    padding: 20px 20px;
+    margin-left: 10px;
+    background-color: whitesmoke;
+}
+
+.project-list h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: blue;
+}
+
+.project-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-list li {
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.project-list li:hover {
+    transform: translateX(5px);
+}
+
+.project-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.project-list a:hover {
+    text-decoration: underline;
+}
+
+.preview-area {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: whitesmoke;
+}
+
+#preview-gif {
+    max-width: 80%;
+    max-height: 70vh;
+    display: none;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* Add this to minimal.css */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #C3F400;
+    z-index: 1000;
+}
+
+.bottom-bar button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: black;
+    border: 1px solid;
+    cursor: pointer;
+    font-family: monospace;
+    color: #C3F400;
+}
+
+
+
