@@ -341,7 +341,7 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
             if (projectName === 'Homescreen Project') {
             window.open('https://www.instagram.com/h0m3scr33n.proj/', '_blank'); // Replace with your Instagram URL
         } else {
-            window.location.href = `./projects/${projectPage}.html`;
+            window.location.href = `./projects/${projectPage.toLowerCase()}.html`;
         }
       }
  });
@@ -384,7 +384,14 @@ let selectedProjectsVisible = false;
 
 function toggleSelectedProjects() {
     const button = document.getElementById('show-works');
-    const foldersContainer = document.querySelector('.folders-container');
+    
+    // Check if container exists, create if not
+    let projectsContainer = document.querySelector('.selected-projects-container');
+    if (!projectsContainer && !selectedProjectsVisible) {
+        projectsContainer = document.createElement('div');
+        projectsContainer.className = 'selected-projects-container';
+        document.querySelector('.desktop').appendChild(projectsContainer);
+    }
     
     if (!selectedProjectsVisible) {
         selectedProjects.forEach(project => {
@@ -398,8 +405,7 @@ function toggleSelectedProjects() {
                 <span>${project.name}</span>
             `;
             
-            foldersContainer.insertBefore(projectIcon, foldersContainer.firstChild);
-            makeDraggable(projectIcon);
+            projectsContainer.appendChild(projectIcon);
             
             // Add click handler for selected projects
             projectIcon.addEventListener('click', (e) => {
@@ -407,7 +413,7 @@ function toggleSelectedProjects() {
                 if (project.name === 'Homescreen') {
                     window.open('https://www.instagram.com/h0m3scr33n.proj/', '_blank');
                 } else {
-                    window.location.href = `./projects/${project.page || project.name.toLowerCase()}.html`;
+                    window.location.href = `./projects/${project.name.toLowerCase()}.html`;
                 }
             });
         });
@@ -415,14 +421,17 @@ function toggleSelectedProjects() {
         // Change button style to black with green text
         button.textContent = 'hide selected works';
         button.style.backgroundColor = '#000000';
-        button.style.color = '#C3F400'; // Bright green matching bottom bar
+        button.style.color = '#C3F400';
     } else {
-        document.querySelectorAll('.selected-project').forEach(project => project.remove());
+        // Remove the container when hiding
+        if (projectsContainer) {
+            projectsContainer.remove();
+        }
         
         // Reset button style
         button.textContent = 'show selected works';
         button.style.backgroundColor = 'transparent';
-        button.style.color = '#000000'; // Reset to default text color
+        button.style.color = '#000000';
     }
     selectedProjectsVisible = !selectedProjectsVisible;
 }

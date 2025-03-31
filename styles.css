@@ -89,11 +89,10 @@ body {
 }
 
 #intro-window {
-    top: 20px;
-    left: 20px;
     width: 300px;  /* Fixed width */
     border: 1px solid #7C82F9;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+    font-size: 12px;
 }
 
 #intro-window .window-content{
@@ -115,11 +114,10 @@ body {
 }
 
 #status-window {
-    top: 257px;    /* Adjust based on intro window height + some spacing */
-    left: 20px;
     width: 300px;  /* Fixed width */
     border: 1px solid #3d8421;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+    font-size: 12px;
 }
 
 #status-window .window-header {
@@ -129,22 +127,46 @@ body {
 }
 
 #reviews-window {
-    top: 407px;
-    left: 20px;
     width: 300px; 
     min-width: 20vw;  /* Minimum width instead of fixed width */
     max-width: 100vw;
-    height: 335px; 
+    height: 350px; 
     resize: both;     /* Allow both horizontal and vertical resizing */
     overflow: auto;
     border: 1px solid black;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+    font-size: 12px;
 }
 
 #reviews-window .window-header {
     border-bottom: 1px solid black;
     background-color: black;
     color: white;
+}
+
+/* Add a container for the windows on the left */
+.windows-container {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;  /* Consistent spacing between windows */
+    width: 280px;
+}
+
+/* Update the window positioning */
+#intro-window, #status-window, #reviews-window {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin-bottom: 0;  /* Remove any existing margins */
+}
+
+/* Adjust reviews window height */
+#reviews-window {
+    height: 350px;
 }
 
 
@@ -284,9 +306,19 @@ body {
   position: absolute;
   right: 20px;
   top: 5px;
-  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(3, auto);
+  gap: 5px;
+  width: auto;
   height: 360px; /* Explicitly set a height boundary */
   z-index: 10; /* Higher than the GIF */
+}
+
+.folder {
+    position: relative !important; /* Override absolute positioning */
+    top: auto !important;
+    right: auto !important;
 }
 
 .profile-gif {
@@ -411,20 +443,23 @@ body {
 }
 
 
-.selected-project:nth-child(odd) {
-    right: 260px;
+/* Add to your styles.css */
+.selected-projects-container {
+    position: absolute;
+    top: 20px;
+    right: 275px; /* Position to the left of the folders */
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 30px;
+    width: 230px;
 }
 
-.selected-project:nth-child(even) {
-    right: 380px;
+.selected-project {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
 }
-
-.selected-project:nth-child(1) { top: 10; }
-.selected-project:nth-child(2) { top: 10; }
-.selected-project:nth-child(3) { top: 125px; }
-.selected-project:nth-child(4) { top: 125px; }
-/* Add more if needed */
-
 
 .profile-gif img {
   width: 100%;
@@ -464,6 +499,8 @@ body {
 .intro-content p {
   line-height: 1.5;
   margin-bottom: 10px;
+  font-size: 14px;
+  text-align: justify;
 }
 
 /* Show the popup when hovering over the profile gif */
@@ -494,6 +531,7 @@ body {
     align-items: center;
     background: #C3F400;
     z-index: 10000;
+    font-size: 12px;
 }
 
 .bottom-bar button {
@@ -503,6 +541,7 @@ body {
     border: 1px solid var(--text-primary);
     cursor: pointer;
     font-family: monospace;
+    font-size: 12px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
