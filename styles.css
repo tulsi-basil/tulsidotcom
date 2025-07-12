@@ -323,18 +323,13 @@ body {
 
 .profile-gif {
   position: fixed;
-  bottom: 140px;
-  right: 20px;
-  max-width: min(30vw, 300px); /* Responsive but with maximum size */
-  max-height: min(30vh, 300px);
-  /*max-width: 350px;
-  max-height: 350px;*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: min(35vw, 350px); /* Increased from 30vw, 300px */
+  max-height: min(35vh, 350px); /* Increased from 30vh, 300px */
   z-index: 5;
-  /* Ensure it doesn't go above a certain point */
-  top: auto; /* Cancel any top positioning */
-  margin-top: 380px; /* Space below the folders */
-  align-items: center;
-  text-align: center; 
+  text-align: center;
 }
 
 
@@ -490,6 +485,7 @@ body {
   font-family: monospace;
   text-align: center;
   color: white;
+  text-shadow: 1px 1px black;
 }
 
 .intro-content h2 {

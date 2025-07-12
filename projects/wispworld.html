@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisp World</title>
+    <link rel="icon" type="image/x-icon" href="../blueheart.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="wispworld.css">
+</head>
+<body>
+    <div class="project-page">
+        <h1 class="project-title">Wisp World - Interactive AR RPG for Spectacles</h1>
+        <div class="tools">
+            <p>Tools: Parabrain, Lens Studio, Snap Spectacles, LLM Integration</p>
+        </div>
+
+        <!-- Paired content blocks -->
+        <div class="content-pairs">
+            
+            <!-- Pair 1: Narrative AR Innovation -->
+            <div class="content-pair">
+                <div class="pair-text">
+                    <p>Wisp World is an interactive RPG that transforms your real environment into a magical story space using Snap Spectacles. Players discover three lost wisps scattered throughout their home and help reunite them by solving conversation and object-finding challenges. The entire narrative unfolds in AR, blending digital characters with physical spaces to create an entirely new form of storytelling.</p>
+                </div>
+                <div class="pair-media">
+                    <img src="wispworldmedia/wispworldposter.png" alt="Wisp World AR experience overview">
+                </div>
+            </div>
+
+            <!-- Pair 2: AI Character Brain Architecture -->
+            <div class="content-pair">
+                <div class="pair-text">
+                    <p>I designed the personalities and conversation systems for three distinct wisp characters using Parabrain. Starting with research into character dynamics and narrative tropes, I initially developed four characters before narrowing to the optimal trio. Each wisp required extensive character profiling - background lore, sample dialogue, thought processes, and personality quirks.</p>
+                    <br>
+                    <p>The iterative process was intense: Tictac became the charming guide, Grindle the grumpy one wary of humans, and Gliss the hyperactive optimist. Conversation design proved especially challenging since most AI defaults to servile, flowery language. I had to build intuition for prompt engineering - testing different LLMs (Gemini vs ChatGPT) for specific tasks and discovering that a single misplaced word could break an entire character's personality. Each character went through dozens of prompt iterations to achieve authentic, consistent voices.</p>
+                </div>
+                <div class="pair-media">
+                    <img src="wispworldmedia/wispworldcharacters.png" alt="Character development and personality design">
+                </div>
+            </div>
+
+            <!-- Pair 3: State-Based Game Progression -->
+            <div class="content-pair">
+                <div class="pair-text">
+                    <p>I built complex state management systems that tracked player progress through conversation and object interactions. Each wisp had multiple conversation states with specific triggers - for example, Tictac couldn't reveal their backstory until players proved they weren't harmful. This required mapping dozens of game states and defining what elements were active/inactive at each stage.</p>
+                </div>
+                <div class="pair-media">
+                    <img src="wispworldmedia/narrativeprogression.png" alt="Game state progression diagram">
+                </div>
+            </div>
+
+            <!-- Pair 4: AR-First UX Design -->
+            <div class="content-pair">
+                <div class="pair-text">
+                    <p>Since most users had never tried AR experiences, I designed minimal onboarding that taught through play rather than lengthy tutorials. User testing revealed critical issues - like gesture recognition failing when fingers were too close together - that required iterating on both the technical systems and instructional design. The final experience guides users naturally through Tictac's dialogue rather than overwhelming them with upfront instruction.</p>
+                </div>
+                <div class="pair-media">
+                    <img src="wispworldmedia/introux.png" alt="AR UX testing and gesture design">
+                </div>
+            </div>
+
+            <!-- Pair 5: Cross-Platform Integration -->
+            <!-- <div class="content-pair">
+                <div class="pair-text">
+                    <p>Working closely with colleagues, we integrated Parabrain's AI conversation systems with Lens Studio's AR environment and real-time object detection. When players "scan" objects, the system captures images and uses LLM analysis to identify items and advance the story. This required coordinating between multiple AI models (GPT vs Gemini) based on their individual strengths for conversation, image recognition, and logical reasoning.</p>
+                </div>
+                <div class="pair-media">
+                    <img src="wispworldmedia/technical-integration.jpg" alt="Technical architecture and integration">
+                </div>
+            </div> -->
+
+            <!-- Impact Summary -->
+           <!--  <div class="content-pair">
+                <div class="pair-text">
+                    <p><strong>Impact:</strong> Created a functional prototype that demonstrates the future of spatial storytelling, successfully onboarding first-time AR users into complex narrative gameplay through intuitive character-driven design.</p>
+                </div>
+                <div class="pair-media">
+                    <img src="wispworldmedia/final-experience.jpg" alt="Final Wisp World experience">
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <div class="contact-links">
+            You can reach her via
+            <a href="mailto:tulsiibasil@gmail.com">email</a>,
+            <a href="https://www.linkedin.com/in/tulsi-patel-4aab98173/">LinkedIn</a>, or
+            <a href="https://substack.com/@tulsibasil?">Substack</a>
+        </div>
+        <a href="../index.html" class="back-arrow">←</a>
+    </div>
+</body>
+</html>

@@ -109,7 +109,9 @@ const folderContents = {
     'xr-ai': [
         { icon: 'Wisp-App-Icon.png', gif: 'wisp.gif', name: 'Wisp', page: 'Wisp' },
         { icon: 'parabrain-icon.png', gif: 'parabrain.gif', name: 'Parabrain AI', page: 'Parabrain' },
-        { icon: 'interaction-icon.png', gif: 'hmd.gif', name: 'Interaction Specification', page: 'Interaction' }
+        { icon: 'interaction-icon.png', gif: 'hmd.gif', name: 'Interaction Specification', page: 'Interaction' },
+        { icon: 'wispworld-icon.png', gif: 'wispworld.gif', name: 'Wisp World', page: 'Wispworld' },
+        { icon: 'gofl-icon.png', gif: 'gofl.gif', name: 'GOFL', page: 'gofl' }
     ],
     'web': [
         { icon: 'juggernaut-icon.png', gif: 'juggernaut.gif', name: 'Juggernaut Redesign', page: 'Juggernaut' },
@@ -143,7 +145,7 @@ function createFolderWindow(category) {
         'xr-ai': '#C3F400',
         'web': '#7C82F9',
         'research': '#3D8421',
-        'personal': '#ffffff',
+        'personal': '#63d9ff',
         'more': '#000000'
     };
     
