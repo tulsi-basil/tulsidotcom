@@ -15,18 +15,11 @@
 
 body {
     font-family: monospace;
-    background-color: ghostwhite; /* Your default color */
+    background-color: ghostwhite;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    overflow: hidden;
-}
-
-#change-bg {
-    width: 120px;  /* Fixed width - adjust as needed */
-    text-align: center;
-    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -36,16 +29,13 @@ body {
     padding: 20px;
 }
 
-/* Window Styles */
+/* ============ WINDOW STYLES ============ */
 .window {
     position: absolute;
     background: var(--window-bg);
     border: 1px solid var(--text-primary);
     min-width: 300px;
     cursor: default;
-}
-
-.window, .folder-window {
     z-index: 1000;
 }
 
@@ -59,6 +49,12 @@ body {
     position: relative;
 }
 
+.window-title {
+    flex-grow: 1;
+    text-align: center;
+    order: 2;
+}
+
 .minimize-btn {
     background: none;
     border: none;
@@ -68,43 +64,47 @@ body {
     order: 1;
 }
 
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
 .window.minimized {
-    height: auto !important;  /* Override any previous height */
-    width: 300px !important; /* Fixed width when minimized */
+    height: auto !important;
+    width: 300px !important;
 }
 
 .window.minimized .window-content {
     display: none;
 }
 
-/* Keep minimize button aligned */
-.window-title {
-    flex-grow: 1;
-    text-align: center;
-    order: 2;
-}
-
 .window-content {
     padding: 10px;
 }
 
+/* ============ LEFT COLUMN WINDOWS ============ */
+.windows-container {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 280px;
+}
+
+/* Intro Window */
 #intro-window {
-    width: 300px;  /* Fixed width */
+    width: 300px;
     border: 1px solid #7C82F9;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
     font-size: 12px;
-}
-
-#intro-window .window-content{
-    padding: 0;
-}
-
-
-#intro-window .window-content img{
-    width: 100%;    /* Takes up full width of the window content */
-    height: auto;   /* Maintains aspect ratio */
-    display: block;
-
+    position: relative;
+    top: auto;
+    left: auto;
 }
 
 #intro-window .window-header {
@@ -113,11 +113,25 @@ body {
     color: white;
 }
 
+#intro-window .window-content {
+    padding: 0;
+}
+
+#intro-window .window-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Status Window */
 #status-window {
-    width: 300px;  /* Fixed width */
+    width: 300px;
     border: 1px solid #3d8421;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
     font-size: 12px;
+    position: relative;
+    top: auto;
+    left: auto;
 }
 
 #status-window .window-header {
@@ -126,16 +140,18 @@ body {
     color: white;
 }
 
+/* Reviews Window */
 #reviews-window {
-    width: 300px; 
-    min-width: 20vw;  /* Minimum width instead of fixed width */
-    max-width: 100vw;
-    height: 350px; 
-    resize: both;     /* Allow both horizontal and vertical resizing */
+    width: 300px;
+    height: 350px;
+    resize: both;
     overflow: auto;
     border: 1px solid black;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
     font-size: 12px;
+    position: relative;
+    top: auto;
+    left: auto;
 }
 
 #reviews-window .window-header {
@@ -144,32 +160,23 @@ body {
     color: white;
 }
 
-/* Add a container for the windows on the left */
-.windows-container {
+/* ============ FOLDER WINDOWS ============ */
+.folder-window {
     position: absolute;
-    left: 20px;
-    top: 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;  /* Consistent spacing between windows */
-    width: 280px;
+    background: var(--window-bg);
+    border: 1px solid;
+    width: 500px;
+    height: 300px;
+    display: none;
+    overflow: auto;
+    z-index: 1000;
 }
 
-/* Update the window positioning */
-#intro-window, #status-window, #reviews-window {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    margin-bottom: 0;  /* Remove any existing margins */
+.folder-window.active {
+    display: block;
 }
 
-/* Adjust reviews window height */
-#reviews-window {
-    height: 350px;
-}
-
-
+/* Specific folder window styles */
 #personal-window {
     border: 1px solid black;
 }
@@ -177,17 +184,13 @@ body {
 #personal-window .window-header {
     border-bottom: 1px solid black;
     background-color: white;
-    color: white;
-}
-
-#personal-window .minimize-btn{
     color: black;
 }
 
-#personal-window .window-title{
+#personal-window .minimize-btn,
+#personal-window .window-title {
     color: black;
 }
-
 
 #more-window .close-btn,
 #more-window .minimize-btn,
@@ -195,20 +198,11 @@ body {
     color: #ffffff;
 }
 
-#xr-ai-window .minimize-btn {
-    color: black;
-}
-
-#web-window .minimize-btn {
-    color: black;
-}
-
-#mobile-window .minimize-btn {
-    color: black
-}
-
+#xr-ai-window .minimize-btn,
+#web-window .minimize-btn,
+#mobile-window .minimize-btn,
 #research-window .minimize-btn {
-    color: black
+    color: black;
 }
 
 .window-note {
@@ -222,44 +216,32 @@ body {
     text-align: right;
 }
 
+/* ============ FOLDERS CONTAINER ============ */
+.folders-container {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(3, auto);
+    gap: 5px;
+    width: auto;
+    height: 360px;
+    z-index: 10;
+}
 
 .folder {
-    position: absolute;  /* Add this */
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 20px;
-    margin-top: 20px;
     cursor: default;
     z-index: 1;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+    transition: transform 0.2s ease;
 }
-
-.folder img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 5px;
-}
-
-.folder span {
-    text-align: center;
-    font-size: 0.9em;
-    color: white;
-}
-
-.folder.dragging {
-    z-index: 1001;
-    position: absolute;
-}
-
-.folder[data-category="xr-ai"] { top: 0; right: 0; }
-.folder[data-category="web"] { top: 120px; right: 0; }
-.folder[data-category="mobile"] { top: 240px; right: 0; }
-.folder[data-category="research"] { top: 0; right: 150px; }
-.folder[data-category="personal"] { top: 120px; right: 120px; }
-.folder[data-category="more"] { top: 240px; right: 120px; }
-
-/* Add to styles.css */
 
 .folder:hover {
     transform: scale(1.05);
@@ -276,63 +258,19 @@ body {
 .folder span {
     text-align: center;
     font-size: 0.9em;
+    color: white;
     transition: color 0.2s ease;
 }
 
 #resume-icon {
     position: absolute;
-    top: 240px;  /* Position below other folders */
+    top: 240px;
     right: 120px;
     z-index: 1;
     cursor: pointer;
 }
 
-.folder-window {
-    position: absolute;
-    background: var(--window-bg);
-    border: 1px solid;
-    width: 500px;
-    height: 300px; 
-    display: none;
-    overflow: auto;
-    z-index: 1000; /* Lower than preview but higher than regular elements */
-}
-
-.folder-window.active {
-    display: block;
-}
-
-.folders-container {
-  position: absolute;
-  right: 20px;
-  top: 5px;
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows: repeat(3, auto);
-  gap: 5px;
-  width: auto;
-  height: 360px; /* Explicitly set a height boundary */
-  z-index: 10; /* Higher than the GIF */
-}
-
-.folder {
-    position: relative !important; /* Override absolute positioning */
-    top: auto !important;
-    right: auto !important;
-}
-
-.profile-gif {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: min(35vw, 350px); /* Increased from 30vw, 300px */
-  max-height: min(35vh, 350px); /* Increased from 30vh, 300px */
-  z-index: 5;
-  text-align: center;
-}
-
-
+/* ============ PROJECT GRID ============ */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -362,38 +300,28 @@ body {
 .project-preview {
     position: fixed;
     display: none;
-    z-index: 99999;  /* Much higher than anything else */
+    z-index: 99999;
     max-width: 450px;
     max-height: 450px;
     border: 1px solid black;
-    pointer-events: none;  /* Makes sure it doesn't interfere with clicking */
+    pointer-events: none;
 }
 
 .project-preview.active {
     display: block;
 }
 
-/* Add to styles.css */
-.close-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0 5px;
-    font-size: 16px;
-}
-
-
-/* Add to styles.css */
+/* ============ REVIEWS SECTION ============ */
 .review {
     display: flex;
     gap: 15px;
-    margin-bottom: 20px;  /* Space between reviews */
+    margin-bottom: 20px;
 }
 
 .review img {
-    width: 50px;  /* Adjust size as needed */
+    width: 50px;
     height: 50px;
-    flex-shrink: 0;  /* Prevent image from shrinking */
+    flex-shrink: 0;
 }
 
 .review-content {
@@ -402,7 +330,7 @@ body {
 
 .review-content h3 {
     margin: 0;
-    font-size: 12px;  /* Adjust as needed */
+    font-size: 12px;
 }
 
 .review-content em {
@@ -411,14 +339,26 @@ body {
 
 .review-point {
     margin: 5px 0;
-    font-size: 12px;  /* Adjust as needed */
-    color: #0000FF;  /* The blue color from your design */
+    font-size: 12px;
+    color: #0000FF;
 }
 
+/* ============ SELECTED PROJECTS ============ */
+.selected-projects-container {
+    position: absolute;
+    top: 20px;
+    right: 275px;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 30px;
+    width: 230px;
+}
 
-/* selected works */
 .selected-project {
-    position: absolute !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -437,84 +377,68 @@ body {
     text-align: center;
 }
 
-
-/* Add to your styles.css */
-.selected-projects-container {
-    position: absolute;
-    top: 20px;
-    right: 275px; /* Position to the left of the folders */
-    display: grid;
-    grid-template-columns: repeat(2, 100px);
-    gap: 30px;
-    width: 230px;
-}
-
-.selected-project {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
+/* ============ PROFILE GIF ============ */
+.profile-gif {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: min(35vw, 350px);
+    max-height: min(35vh, 350px);
+    z-index: 5;
+    text-align: center;
 }
 
 .profile-gif img {
-  width: 100%;
-  height: auto;
-  mix-blend-mode: screen; 
+    width: 100%;
+    height: auto;
+    mix-blend-mode: screen;
 }
 
+/* ============ INTRO POPUP ============ */
 .intro-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 900;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.1s ease, visibility 0.1s;
-  pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease, visibility 0.1s;
+    pointer-events: none;
 }
 
 .intro-content {
-  background-color: none;
-  padding: 30px;
-  max-width: 500px;
-  font-family: monospace;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 1px black;
+    background-color: none;
+    padding: 30px;
+    max-width: 500px;
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 .intro-content h2 {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .intro-content p {
-  line-height: 1.5;
-  margin-bottom: 10px;
-  font-size: 14px;
-  text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: justify;
 }
 
-/* Show the popup when hovering over the profile gif */
 .profile-gif:hover + .intro-popup {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
-
-.profile-gif span {
-    margin-top: 0px;
-    text-align: center;
-    color: blue;
-    font-size: 10px;
-    margin-left: 40px;
-}
-
-/* Bottom Bar */
+/* ============ BOTTOM BAR ============ */
 .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -541,15 +465,18 @@ body {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+#change-bg {
+    width: 120px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 #change-bg:hover {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
 }
 
-/* Optional: add hover effect */
-#show-works:hover {
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 1.0);
-}
-
+#show-works:hover,
 #minimal:hover {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 1.0);
 }
