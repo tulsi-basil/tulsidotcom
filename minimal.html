@@ -11,28 +11,39 @@
     <div class="minimal-container">
         <div class="project-list">
             <h1>Projects</h1>
+            
+            <!-- Category filters -->
+            <div class="category-filters">
+                <span class="filter-word" data-category="xr-ai">[XR experiences]</span><br>
+                <span class="filter-word" data-category="web">[ux design]</span><br>
+                <span class="filter-word" data-category="research">[user research]</span><br>
+                <span class="filter-word" data-category="personal">[creative projects]</span><br>
+                <span class="filter-word" data-category="more">[more]</span><br>
+            </div>
+            <br>
             <ul>
-                <li data-gif="wisp.gif"><a href="./projects/wisp.html">Wisp</a></li>
-                <li data-gif="parabrain.gif"><a href="./projects/parabrain.html">Parabrain AI</a></li>
-                <li data-gif="gofl.gif"><a href="./projects/gofl.html">GOFL</a></li>
-                <li data-gif="wispworld.gif"><a href="./projects/wispworld.html">Wisp World</a></li>
-                <li data-gif="hmd.gif"><a href="./projects/interaction.html">Interaction Specification</a></li>
-                <li data-gif="juggernaut.gif"><a href="./projects/juggernaut.html">Juggernaut Redesign</a></li>
-                <li data-gif="aux.gif"><a href="./projects/aux.html">AUX Design Consulting</a></li>
-                <li data-gif="yuber.gif"><a href="./projects/yuber.html">Yuber App</a></li>
-                <li data-gif="gzd.gif"><a href="./projects/dcdx.html">Gen Z Research</a></li>
-                <li data-gif="cnn.gif"><a href="./projects/cnn.html">CNN</a></li>
-                <li data-gif="art.gif"><a href="./projects/visual.html">Visual</a></li>
-                <li data-gif="writing.gif"><a href="./projects/writing.html">Writing</a></li>
-                <li data-gif="fancybear.gif"><a href="./projects/fancybear.html">FancyBear Animation</a></li>
-                <li data-gif="thesis.gif"><a href="./projects/thesis.html">Senior Thesis</a></li>
+                <!-- XR/AI Projects -->
+                <!-- Projects in Alphabetical Order -->
+                <li data-gif="aux.gif" data-category="web"><a href="./projects/aux.html">AUX Design Consulting</a></li>
+                <li data-gif="cnn.gif" data-category="research"><a href="./projects/cnn.html">CNN</a></li>
+                <li data-gif="fancybear.gif" data-category="more"><a href="./projects/fancybear.html">FancyBear Animation</a></li>
+                <li data-gif="gzd.gif" data-category="research"><a href="./projects/dcdx.html">Gen Z Research</a></li>
+                <li data-gif="gofl.gif" data-category="xr-ai"><a href="./projects/gofl.html">GOFL</a></li>
+                <li data-gif="hmd.gif" data-category="xr-ai"><a href="./projects/interaction.html">Interaction Specification</a></li>
+                <li data-gif="juggernaut.gif" data-category="web"><a href="./projects/juggernaut.html">Juggernaut Redesign</a></li>
+                <li data-gif="parabrain.gif" data-category="xr-ai"><a href="./projects/parabrain.html">Parabrain AI</a></li>
+                <li data-gif="thesis.gif" data-category="more"><a href="./projects/thesis.html">Senior Thesis</a></li>
+                <li data-gif="art.gif" data-category="personal"><a href="./projects/visual.html">Visual</a></li>
+                <li data-gif="wisp.gif" data-category="xr-ai"><a href="./projects/wisp.html">Wisp</a></li>
+                <li data-gif="wispworld.gif" data-category="xr-ai"><a href="./projects/wispworld.html">Wisp World</a></li>
+                <li data-gif="writing.gif" data-category="personal"><a href="./projects/writing.html">Writing</a></li>
+                <li data-gif="yuber.gif" data-category="web"><a href="./projects/yuber.html">Yuber App</a></li>
             </ul>
         </div>
         
         <div class="preview-area">
             <img id="preview-gif" src="" alt="Project preview">
         </div>
-        
 
         <div class="bottom-bar">
             <div class="contact-links">
@@ -42,10 +53,9 @@
                 <a href="https://substack.com/@tulsibasil?" target="_blank">Substack</a>
             </div>
             <div class="controls">
-		        <button id="standard-mode"> ← Back to standard mode</button>
-		    </div>
+                <button id="standard-mode"> ← Back to standard mode</button>
+            </div>
         </div>
-        
     </div>
 
     <script src="minimal.js"></script>

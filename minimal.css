@@ -18,20 +18,74 @@ body {
 }
 
 .project-list h1 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 24px;
-    color: blue;
+    color: black;
 }
 
+/* Category filter words */
+.category-filters {
+    margin-bottom: 25px;
+    line-height: 1.2;
+    letter-spacing: 3px;
+}
+
+.filter-word {
+    display: inline;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: all 0.2s;
+}
+
+.filter-word:hover {
+    text-decoration: underline;
+}
+
+/* Category-specific colors */
+.filter-word[data-category="xr-ai"] {
+    color: #C3F400;
+    text-shadow: 1px 1px 1px grey;
+}
+
+.filter-word[data-category="web"] {
+    color: #7C82F9;
+    text-shadow: 1px 1px 1px grey;
+}
+
+.filter-word[data-category="research"] {
+    color: #3D8421;
+    text-shadow: 1px 1px 1px grey;
+}
+
+.filter-word[data-category="personal"] {
+    color: #63d9ff;
+    text-shadow: 1px 1px 1px grey;
+}
+
+.filter-word[data-category="more"] {
+    color: #0000FF;
+    text-shadow: 1px 1px 1px grey;
+}
+
+/* Active state - make text bold */
+.filter-word.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Project list styling */
 .project-list ul {
     list-style: none;
     padding: 0;
+
 }
 
 .project-list li {
     margin-bottom: 15px;
-    transition: transform 0.2s;
+    transition: all 0.2s;
     cursor: pointer;
+
 }
 
 .project-list li:hover {
@@ -42,12 +96,40 @@ body {
     text-decoration: none;
     color: #333;
     font-size: 16px;
+    transition: color 0.2s;
 }
 
 .project-list a:hover {
     text-decoration: underline;
 }
 
+/* Category highlight colors */
+.project-list li[data-category="xr-ai"].highlighted a {
+    color: #C3F400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.project-list li[data-category="web"].highlighted a {
+    color: #7C82F9;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.project-list li[data-category="research"].highlighted a {
+    color: #3D8421;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.project-list li[data-category="personal"].highlighted a {
+    color: #63d9ff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.project-list li[data-category="more"].highlighted a {
+    color: #0000FF;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Preview area */
 .preview-area {
     flex-grow: 1;
     display: flex;
@@ -65,8 +147,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-
-/* Add this to minimal.css */
+/* Bottom bar */
 .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -90,6 +171,3 @@ body {
     font-family: monospace;
     color: #C3F400;
 }
-
-
-
