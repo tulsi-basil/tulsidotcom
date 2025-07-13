@@ -1,12 +1,10 @@
-/* project-template.css */
-
 body {
     font-family: monospace;
     margin: 0;
     padding: 0;
-    height: auto;  /* Override the 100vh height from main styles */
-    min-height: 100vh;  /* Ensure it's at least full viewport height */
-    overflow-y: auto;  /* Allow vertical scrolling */
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
@@ -14,8 +12,8 @@ body {
 .project-page {
     flex: 1;
     padding: 40px;
-    margin-bottom: 40px; /* Space for bottom bar */
-    padding-bottom: 80px;  /* Add space for the bottom bar */
+    margin-bottom: 40px;
+    padding-bottom: 80px;
 }
 
 .project-title {
@@ -23,54 +21,106 @@ body {
     margin-bottom: 30px;
 }
 
-.tools{
+.tools {
     margin-bottom: 20px;
     color: blue;
 }
 
-.content-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow-y: auto;  /* Allow content to scroll */
-    gap: 40px;
-    max-width: 100%;
-    margin: 0 auto;
+/* Container for all paired content blocks */
+.content-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 100%;
+    margin: 0;
 }
 
-.text-column {
+/* Individual text + media pair - 50/50 split */
+.content-pair {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 40px;
+    align-items: start;
+    width: 100%;
+}
+
+.pair-text {
     font-size: 14px;
     line-height: 1.6;
 }
 
-.media-column {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.media-block {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.media-block-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.media-item {
+.pair-media {
     width: 100%;
+    padding-right: 40px;
 }
 
-.media-item img,
-.media-item video {
+.pair-media img,
+.pair-media video {
     width: 100%;
     height: auto;
-    background: #f0f0f0; /* Placeholder color */
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Design tests grid */
+.design-tests {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.design-tests img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Development process grid */
+.development-process {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.development-process img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Marketing content styling */
+.marketing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.instagram-grid .instagram-media {
+    margin: 0 auto !important;
+    max-width: 100% !important;
 }
 
 /* Bottom bar styling */
@@ -89,23 +139,33 @@ body {
 }
 
 .back-arrow {
-    margin-left: auto; /* Pushes arrow to the right */
+    margin-left: auto;
     font-size: 24px;
     text-decoration: none;
     color: #000;
 }
 
-/* Add to your project CSS */
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .content-pair {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pair-media {
+        padding-right: 0;
+    }
+    
+    .design-tests,
+    .development-process {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-page {
+        padding: 20px;
+    }
+    
+    .content-pairs {
+        gap: 40px;
+    }
 }
