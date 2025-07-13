@@ -346,11 +346,11 @@ body {
 /* ============ SELECTED PROJECTS ============ */
 .selected-projects-container {
     position: absolute;
-    top: 20px;
-    right: 275px;
+    top: 30px;
+    right: 300px;
     display: grid;
     grid-template-columns: repeat(2, 100px);
-    gap: 30px;
+    gap: 25px;
     width: 230px;
 }
 
@@ -411,6 +411,8 @@ body {
     transition: opacity 0.1s ease, visibility 0.1s;
     pointer-events: none;
 }
+
+
 
 .intro-content {
     background-color: none;

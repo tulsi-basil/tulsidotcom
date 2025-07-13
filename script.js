@@ -220,6 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('change-bg').textContent = initialState.buttonText;
      });
 
+    document.querySelectorAll('.minimize-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const window = btn.closest('.window');
+            window.classList.toggle('minimized');
+        });
+    });
 
     document.getElementById('resume-icon').addEventListener('click', () => {
     window.open('resume_tulsi_2025.pdf', '_blank');  
@@ -231,56 +238,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Make folders draggable
     // Set up folder click handlers
-document.querySelectorAll('.folder').forEach(folder => {
-    if (folder.classList.contains('selected-project')) return;
-    
-    folder.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const category = folder.getAttribute('data-category');
-        let folderWindow = document.getElementById(`${category}-window`);
+    document.querySelectorAll('.folder').forEach(folder => {
+        if (folder.classList.contains('selected-project')) return;
         
-        if (!folderWindow) {
-            folderWindow = createFolderWindow(category);
-        }
-        
-        folderWindow.style.display = 'block';
-        const windowWidth = 400;
-        const windowHeight = 300;
-        folderWindow.style.top = `${(window.innerHeight - windowHeight) / 2}px`;
-        folderWindow.style.left = `${(window.innerWidth - windowWidth) / 2}px`;
-        
-        // Bring window to front
-        highestZIndex += 1;
-        folderWindow.style.zIndex = highestZIndex;
+        folder.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const category = folder.getAttribute('data-category');
+            let folderWindow = document.getElementById(`${category}-window`);
+            
+            if (!folderWindow) {
+                folderWindow = createFolderWindow(category);
+            }
+            
+            folderWindow.style.display = 'block';
+            const windowWidth = 400;
+            const windowHeight = 300;
+            folderWindow.style.top = `${(window.innerHeight - windowHeight) / 2}px`;
+            folderWindow.style.left = `${(window.innerWidth - windowWidth) / 2}px`;
+            
+            // Bring window to front
+            highestZIndex += 1;
+            folderWindow.style.zIndex = highestZIndex;
+        });
     });
-});
 
-// After making folders draggable, set their initial positions
-document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
-    const category = folder.getAttribute('data-category');
-    switch(category) {
-        case 'xr-ai':
-            folder.style.top = '0';
-            folder.style.right = '0';
-            break;
-        case 'web':
-            folder.style.top = '120px';
-            folder.style.right = '0';
-            break;
-        case 'personal':
-            folder.style.top = '0';
-            folder.style.right = '120px';
-            break;
-        case 'research':
-            folder.style.top = '120px';
-            folder.style.right = '120px';
-            break;
-        case 'more':
-            folder.style.top = '240px';
-            folder.style.right = '0px';
-            break;
-    }
-});
+    // After making folders draggable, set their initial positions
+    document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
+        const category = folder.getAttribute('data-category');
+        switch(category) {
+            case 'xr-ai':
+                folder.style.top = '0';
+                folder.style.right = '0';
+                break;
+            case 'web':
+                folder.style.top = '120px';
+                folder.style.right = '0';
+                break;
+            case 'personal':
+                folder.style.top = '0';
+                folder.style.right = '120px';
+                break;
+            case 'research':
+                folder.style.top = '120px';
+                folder.style.right = '120px';
+                break;
+            case 'more':
+                folder.style.top = '240px';
+                folder.style.right = '0px';
+                break;
+        }
+    });
 
 
 
@@ -346,11 +353,11 @@ document.querySelectorAll('.folder:not(.selected-project)').forEach(folder => {
             window.location.href = `./projects/${projectPage.toLowerCase()}.html`;
         }
       }
- });
+    });
 
     // Add show works event listener
     document.getElementById('show-works').addEventListener('click', toggleSelectedProjects);
-});
+    });
 //------- selected works ----------------------------------------------------------------------------
 
 // Add to your existing JavaScript
