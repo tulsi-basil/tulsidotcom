@@ -66,13 +66,13 @@ const backgroundStates = [
     },
     { 
         name: 'night',
-        images: ['night.jpeg'],
+        images: ['night.jpg'],
         buttonText: 'sunset mode',
         currentImageIndex: 0
     },
     { 
         name: 'sunset',
-        images: ['sunset.jpg'],
+        images: ['sunset2.png'],
         buttonText: 'dawn mode',
         currentImageIndex: 0
     },
@@ -98,7 +98,7 @@ function changeBackground() {
     previousState.currentImageIndex = (previousState.currentImageIndex + 1) % previousState.images.length;
     
     // Set background to first image of new state
-    document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url('${currentState.images[currentState.currentImageIndex]}')`;
+    document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3)), url('${currentState.images[currentState.currentImageIndex]}')`;
     
     // Update button text
     document.getElementById('change-bg').textContent = currentState.buttonText;
