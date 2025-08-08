@@ -1,0 +1,136 @@
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-page {
+    flex: 1;
+    padding: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 80px;
+}
+
+.project-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.tools {
+    margin-bottom: 20px;
+    color: blue;
+}
+
+/* Optional introduction text (before paired content) */
+.intro-text {
+    font-size: 14px;
+    margin-bottom: 60px;
+    max-width: 800px;
+}
+
+/* Container for all paired content blocks */
+.content-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Space between each pair */
+    width: 100%;
+    margin: 0;
+}
+
+/* Individual text + media pair - 50/50 split */
+.content-pair {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 40px;
+    align-items: start;
+    width: 100%;
+}
+
+.pair-text {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.pair-media {
+    width: 100%;
+    padding-right: 40px; /* Add space from right edge */
+}
+
+.pair-media img,
+.pair-media video {
+    width: 100%;
+    height: auto;
+}
+
+/* Video container for responsive videos */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.instagram-videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.instagram-videos iframe {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+}
+
+/* Bottom bar styling */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #C3F400;
+    z-index: 1000;
+}
+
+.back-arrow {
+    margin-left: auto;
+    font-size: 24px;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .content-pair {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pair-media {
+        padding-right: 0;
+    }
+    
+    .project-page {
+        padding: 20px;
+    }
+    
+    .content-pairs {
+        gap: 40px;
+    }
+}

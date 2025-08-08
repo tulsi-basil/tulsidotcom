@@ -111,7 +111,8 @@ const folderContents = {
         { icon: 'parabrain-icon.png', gif: 'parabrain.gif', name: 'Parabrain AI', page: 'Parabrain' },
         { icon: 'interaction-icon.png', gif: 'hmd.gif', name: 'Interaction Specification', page: 'Interaction' },
         { icon: 'wispworld-icon.png', gif: 'wispworld.gif', name: 'Wisp World', page: 'Wispworld' },
-        { icon: 'gofl-icon.png', gif: 'gofl.gif', name: 'GOFL', page: 'gofl' }
+        { icon: 'gofl-icon.png', gif: 'gofl.gif', name: 'GOFL', page: 'gofl' },
+        { icon: 'lifestory-icon.png', gif: 'lifestory.gif', name: 'Life Story', page: 'lifestory' }
     ],
     'web': [
         { icon: 'juggernaut-icon.png', gif: 'juggernaut.gif', name: 'Juggernaut Redesign', page: 'Juggernaut' },
@@ -384,6 +385,12 @@ const selectedProjects = [
         name: 'Parabrain',
         icon: 'parabrain-icon.png',
         gif: 'parabrain.gif',
+        originalFolder: 'xr-ai'
+    },
+    {
+        name: 'Life Story',
+        icon: 'lifestory-icon.png',
+        gif: 'lifestory.gif',
         originalFolder: 'xr-ai'
     }
     // Add more selected projects here
