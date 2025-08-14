@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('resume-icon').addEventListener('click', () => {
-    window.open('resume_tulsi_2025.pdf', '_blank');  
+    window.open('tulsipatel_resume_2025.pdf', '_blank');  
     });
 
     document.getElementById('minimal-site').addEventListener('click', () => {
