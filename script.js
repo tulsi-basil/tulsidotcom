@@ -117,7 +117,8 @@ const folderContents = {
     'web': [
         { icon: 'juggernaut-icon.png', gif: 'juggernaut.gif', name: 'Juggernaut Redesign', page: 'Juggernaut' },
         { icon: 'aux-icon.png', gif: 'aux.gif', name: 'AUX Design Consulting', page: 'Aux' },
-        { icon: 'yuber-icon.png', gif: 'yuber.gif', name: 'Yuber App', page: 'Yuber' }
+        { icon: 'yuber-icon.png', gif: 'yuber.gif', name: 'Yuber App', page: 'Yuber' },
+        { icon: 'ezone-icon.png', gif: 'ezone.gif', name: 'Experiment Zone', page: 'ezone' }
     ],
     'research': [
         { icon: 'ad-icon.png', gif: 'gzd.gif', name: 'Gen Z Research', page: 'dcdx' },
