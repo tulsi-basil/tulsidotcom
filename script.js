@@ -128,7 +128,8 @@ const folderContents = {
         { icon: 'homescreen-icon.png', gif: 'homescreen.gif', name: 'Homescreen Project', page: 'Homescreen' },
         { icon: 'websites-icon.png', gif: 'websites.gif', name: 'Websites', page: 'Website' },
         { icon: 'visual-icon.png', gif: 'art.gif', name: 'Visual', page: 'Visual' },
-        { icon: 'writing-icon.png', gif: 'writing.gif', name: 'Writing', page: 'Writing' }
+        { icon: 'writing-icon.png', gif: 'writing.gif', name: 'Writing', page: 'Writing' },
+        { icon: 'video-icon.png', gif: 'video.gif', name: 'Video', page: 'Video' }
     ],
     'more': [
         { icon: 'fancy-icon.png', gif: 'fancybear.gif', name: 'FancyBear Animation', page: 'FancyBear' },
